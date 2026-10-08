@@ -1,26 +1,169 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbf8f1;
+  --foreground: #18342b;
+  --surface: #ffffff;
+  --accent: #b9573d;
+  --accent-dark: #963f2c;
+  --border: #ded8cb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  background: rgb(251 248 241 / 92%);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+}
+
+.site-nav {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 72rem;
+  min-height: 4.75rem;
+  padding: 0 1.5rem;
+}
+
+.wordmark {
+  align-items: center;
+  display: flex;
+  font-size: 1.125rem;
+  font-weight: 750;
+  gap: 0.65rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.wordmark-icon {
+  align-items: center;
+  background: var(--foreground);
+  border-radius: 50% 50% 42% 42%;
+  color: var(--background);
+  display: inline-flex;
+  height: 2rem;
+  justify-content: center;
+  width: 2rem;
+}
+
+.nav-links {
+  align-items: center;
+  display: flex;
+  gap: 1.75rem;
+}
+
+.nav-links a {
+  color: #4a5e56;
+  font-size: 0.925rem;
+  font-weight: 550;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--accent);
+}
+
+.nav-cta {
+  background: var(--accent);
+  border-radius: 999px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.8rem 1.2rem;
+  white-space: nowrap;
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible {
+  background: var(--accent-dark);
+}
+
+.placeholder-page {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+}
+
+.placeholder-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 60px rgb(24 52 43 / 8%);
+  max-width: 42rem;
+  padding: clamp(2rem, 6vw, 4.5rem);
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.placeholder-card h1 {
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  letter-spacing: -0.05em;
+  line-height: 1.02;
+  margin: 0;
+}
+
+.placeholder-card > p:not(.eyebrow) {
+  color: #5d6b66;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin: 1.5rem auto 2rem;
+}
+
+.placeholder-card a {
+  color: var(--accent-dark);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+@media (max-width: 44rem) {
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    padding-block: 0.9rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    order: 3;
+    overflow-x: auto;
+    padding-top: 0.25rem;
+    width: 100%;
+  }
+
+  .nav-cta {
+    padding: 0.7rem 1rem;
+  }
 }
